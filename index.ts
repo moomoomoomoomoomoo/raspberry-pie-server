@@ -1,27 +1,45 @@
-interface Gun{
-    bullets:number;
-    type:string;
+class Calculator {
+  add(...numbers: number[]) {
+      var sum = 0;
+      for (var i = 0; i < numbers.length; i++) {
+          sum += numbers[i]
+      }
+      return sum;
+  }
+
+  subtract(...numbers: number[]) {
+      var dif = 0;
+      for (var i = 0; i < numbers.length; i++) {
+          dif -= numbers[i]
+      }
+      return dif;
+  }
+
+  divide(...numbers: number[]) {
+      var quo = 0;
+      for (var i = 0; i < numbers.length; i++) {
+          quo /= numbers[i]
+      }
+      return quo;
+  }
+
+  multiply(numbers: number[]){
+      var pro = 0;
+      for (var i = 0; i < numbers.length; i++) {
+          pro *= numbers[i]
+      }
+      return pro;
+  }
 }
 
-class Robot {
-    greeting: string;
-    constructor(greet:string) {
-        this.greeting = greet;
-    }
 
-    public say() {
-        console.log(this.greeting);
-    }
-    public shoot(gun:Gun) {
-        console.log("pew");
-    }
-} 
-class RobotGun {
-    //public bullets:number;
-    //public type:"auto"|"semi-auto";
-    constructor(public bullets:number,public type:string){}
-}
 
-var popo = new Robot("popopopopopo");
-popo.say();
-popo.shoot(new RobotGun(50,'auto'));
+var c = new Calculator();
+
+console.log(c.add(5, 7, 9, 8, 3, 645, 524));
+
+console.log(c.subtract(9, 5));
+
+console.log(c.divide(6, 2));
+
+console.log(c.multiply(2, 4));

@@ -1,22 +1,30 @@
-class Robot {
-    constructor(greet) {
-        this.greeting = greet;
+var Calculator = (function () {
+    function Calculator() {
     }
-    say() {
-        console.log(this.greeting);
-    }
-    shoot(gun) {
-        console.log("pew");
-    }
-}
-class RobotGun {
-    //public bullets:number;
-    //public type:"auto"|"semi-auto";
-    constructor(bullets, type) {
-        this.bullets = bullets;
-        this.type = type;
-    }
-}
-var popo = new Robot("popopopopopo");
-popo.say();
-popo.shoot(new RobotGun(50, 'auto'));
+    Calculator.prototype.add = function () {
+        var numbers = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            numbers[_i - 0] = arguments[_i];
+        }
+        var sum = 0;
+        for (var i = 0; i < numbers.length; i++) {
+            sum += numbers[i];
+        }
+        return sum;
+    };
+    Calculator.prototype.subtract = function (x, y) {
+        return x - y;
+    };
+    Calculator.prototype.divide = function (x, y) {
+        return x / y;
+    };
+    Calculator.prototype.multiply = function (x, y) {
+        return x * y;
+    };
+    return Calculator;
+}());
+var c = new Calculator();
+console.log(c.add(5, 7, 9, 8, 3, 645, 524));
+console.log(c.subtract(9, 5));
+console.log(c.divide(6, 2));
+console.log(c.multiply(2, 4));
